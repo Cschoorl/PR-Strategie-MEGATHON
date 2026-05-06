@@ -3,14 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>MEGATHON — PR & Sponsorship Plan</title>
+<title>MEGATHON — PR Plan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
     --bg:#0a0905;
-    --bg-2:#13100a;
     --ink:#eee9e3;
     --ink-dim:#9a948a;
     --ink-mute:#5b564e;
@@ -18,7 +17,6 @@
     --gold-soft:rgba(214,168,46,.12);
     --gold-line:rgba(214,168,46,.35);
     --line:rgba(238,233,227,.08);
-    --line-strong:rgba(238,233,227,.14);
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -28,17 +26,14 @@
   .deck{position:relative;width:100%;height:100%}
 
   .slide{
-    position:absolute;inset:0;
-    display:flex;flex-direction:column;justify-content:center;
-    padding:6.5vh 8vw 8vh;
-    opacity:0;pointer-events:none;
-    transition:opacity .35s ease;
+    position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+    padding:7vh 9vw 9vh;
+    opacity:0;pointer-events:none;transition:opacity .35s ease;
     background:radial-gradient(120% 80% at 50% 40%, #131009 0%, #0a0905 65%);
     overflow:hidden;
   }
   .slide.is-active{opacity:1;pointer-events:auto}
 
-  /* Typography */
   .eyebrow{
     font-family:"Inter",sans-serif;font-weight:500;letter-spacing:.32em;text-transform:uppercase;
     color:var(--gold);font-size:11px;margin-bottom:18px;
@@ -49,120 +44,92 @@
     letter-spacing:.005em;line-height:.96;color:var(--ink);margin:0;
   }
   h1.display{font-size:clamp(48px, 8vw, 124px)}
-  h2.display{font-size:clamp(30px, 4.4vw, 72px)}
+  h2.display{font-size:clamp(34px, 5.4vw, 84px)}
   .gold{color:var(--gold)}
-  .lede{font-size:clamp(14px,1.05vw,17px);line-height:1.55;color:var(--ink-dim);max-width:60ch;margin-top:16px}
+  .lede{font-size:clamp(15px,1.15vw,18px);line-height:1.55;color:var(--ink-dim);max-width:60ch;margin-top:22px}
   .micro{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-mute)}
-  .kicker{font-family:"Inter",sans-serif;font-size:14px;color:var(--ink-dim);margin-top:12px;line-height:1.55;max-width:62ch}
 
   /* Layout */
-  .grid{display:grid;gap:0}
-  .g-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .linegrid{display:grid;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:30px}
+  .linegrid > *{padding:24px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .linegrid > *:last-child{border-right:0}
   .g-3{grid-template-columns:repeat(3,minmax(0,1fr))}
   .g-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 
-  /* Generic line-grid */
-  .linegrid{display:grid;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:26px}
-  .linegrid > *{padding:22px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
-  .linegrid > *:last-child{border-right:0}
+  /* Numbered list (slides 3, 6) */
+  .numbered{margin-top:30px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+  .numbered .row{display:grid;grid-template-columns:90px 1fr;gap:0;border-bottom:1px solid var(--line);align-items:baseline}
+  .numbered .n{font-family:"Anton",sans-serif;font-size:clamp(36px,4vw,52px);color:var(--gold);padding:18px 22px;line-height:1}
+  .numbered .body{padding:18px 22px}
+  .numbered .h{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(22px,2vw,32px);letter-spacing:.03em;line-height:1;margin:0}
+  .numbered .d{color:var(--ink-dim);font-size:14px;line-height:1.5;margin-top:6px;max-width:70ch}
 
-  /* Pillars */
-  .pillar .num{font-family:"Anton",sans-serif;font-size:32px;color:var(--gold);line-height:1}
-  .pillar .label{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(18px,1.5vw,24px);letter-spacing:.03em}
-  .pillar .desc{color:var(--ink-dim);font-size:13px;line-height:1.55}
-  .pillar .desc .gold{color:var(--gold)}
+  /* Big stats row */
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:30px}
+  .stat{padding:28px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+  .stat:last-child{border-right:0}
+  .stat .v{font-family:"Anton",sans-serif;font-size:clamp(40px,5vw,72px);line-height:.95;color:var(--ink)}
+  .stat .v.gold{color:var(--gold)}
+  .stat .l{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-mute)}
 
-  /* KPIs */
-  .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:24px}
-  .kpi{padding:24px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
-  .kpi:last-child{border-right:0}
-  .kpi .v{font-family:"Anton",sans-serif;font-size:clamp(34px,4vw,56px);line-height:.95;color:var(--ink)}
-  .kpi .v.gold{color:var(--gold)}
-  .kpi .l{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-mute)}
-  .kpi .sub{color:var(--ink-dim);font-size:12px;line-height:1.55}
-
-  /* Pills (used for brand list + tags) */
-  .pills{display:flex;flex-wrap:wrap;gap:8px}
+  /* Brand pills */
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
   .pill{
     border:1px solid var(--line);padding:8px 14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);
     font-family:"Anton",sans-serif;line-height:1;
   }
   .pill.gold{border-color:var(--gold-line);color:var(--gold);background:var(--gold-soft)}
-  .pill.lg{font-size:14px;padding:10px 16px;letter-spacing:.18em}
-  .pill.outline-strong{border-color:var(--line-strong);color:var(--ink)}
 
-  /* Tier rows (target list slide) */
-  .tier{display:grid;grid-template-columns:200px 1fr;gap:0;border-top:1px solid var(--line);align-items:start}
+  /* Tier rows */
+  .tier{display:grid;grid-template-columns:240px 1fr;gap:0;border-top:1px solid var(--line);align-items:start}
   .tier:last-of-type{border-bottom:1px solid var(--line)}
-  .tier .meta{padding:18px 22px 18px 0;display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--line)}
+  .tier .meta{padding:18px 22px;display:flex;flex-direction:column;gap:6px;border-right:1px solid var(--line)}
   .tier .meta .lbl{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:18px;letter-spacing:.04em;color:var(--gold);line-height:1}
-  .tier .meta .price{font-family:"Anton",sans-serif;font-size:22px;color:var(--ink);line-height:1}
-  .tier .meta .why{font-size:12px;color:var(--ink-mute);line-height:1.5}
-  .tier .brands{padding:18px 22px;display:flex;flex-direction:column;gap:10px}
-  .tier .brands .pills{gap:8px}
-  .tier .brands .note{font-size:12px;color:var(--ink-dim);line-height:1.5}
+  .tier .meta .why{font-size:13px;color:var(--ink-dim);line-height:1.5}
+  .tier .brands{padding:18px 22px;display:flex;flex-direction:column;gap:8px}
 
-  /* Funnel (acquisition slide) */
-  .funnel{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:24px}
-  .fcell{padding:20px 14px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px;position:relative}
-  .fcell:last-child{border-right:0}
-  .fcell .v{font-family:"Anton",sans-serif;font-size:clamp(30px,3.6vw,52px);line-height:.95;color:var(--ink)}
-  .fcell:last-child .v{color:var(--gold)}
-  .fcell .l{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-mute)}
-  .fcell .arrow{position:absolute;right:-7px;top:50%;transform:translateY(-50%);width:14px;height:14px;background:var(--bg);border-top:1px solid var(--line);border-right:1px solid var(--line);transform-origin:center;rotate:45deg;display:none}
-
-  /* Sponsor packages */
-  .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:26px}
-  .pcard{padding:22px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-height:200px}
-  .pcard:last-child{border-right:0}
-  .pcard .tag{display:inline-block;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-line);padding:3px 8px;align-self:flex-start;background:var(--gold-soft)}
-  .pcard .name{font-family:"Anton",sans-serif;font-size:clamp(18px,1.5vw,24px);text-transform:uppercase;letter-spacing:.02em;line-height:1}
-  .pcard .who{color:var(--ink-dim);font-size:12px;line-height:1.5}
-  .pcard .price{font-family:"Anton",sans-serif;font-size:18px;color:var(--ink-mute);margin-top:auto}
-
-  /* Acquisition steps (4 steps) */
-  .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:26px}
-  .step{padding:22px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-height:170px}
-  .step:last-child{border-right:0}
-  .step .num{font-family:"Anton",sans-serif;font-size:30px;color:var(--gold);line-height:1}
-  .step .h{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(18px,1.5vw,24px);letter-spacing:.04em;line-height:1}
-  .step .d{color:var(--ink-dim);font-size:13px;line-height:1.5}
-
-  /* PR channels (compressed) */
-  .chan .name{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(18px,1.4vw,22px)}
-  .chan .name .gold{color:var(--gold)}
-  .chan ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
-  .chan li{font-size:12px;color:var(--ink-dim);padding-left:14px;position:relative;line-height:1.45}
-  .chan li::before{content:"";position:absolute;left:0;top:.65em;width:8px;height:1px;background:var(--gold)}
+  /* Reasons (slide 5) */
+  .reasons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:30px}
+  .reason{padding:24px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-height:170px}
+  .reason:last-child{border-right:0}
+  .reason .num{font-family:"Anton",sans-serif;font-size:30px;color:var(--gold);line-height:1}
+  .reason .h{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(18px,1.5vw,24px);letter-spacing:.03em;line-height:1.05}
+  .reason .d{color:var(--ink-dim);font-size:13px;line-height:1.5}
 
   /* Timeline */
-  .timeline{margin-top:26px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line-strong)}
-  .tcol{padding:20px 16px 8px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+  .timeline{margin-top:30px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line)}
+  .tcol{padding:22px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
   .tcol:last-child{border-right:0}
   .tcol .when{font-family:"Anton",sans-serif;font-size:24px;color:var(--gold);line-height:1}
-  .tcol .phase{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.04em}
-  .tcol ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
-  .tcol li{font-size:11px;color:var(--ink-dim);padding-left:12px;position:relative;line-height:1.45}
-  .tcol li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:1px;background:var(--gold)}
-  .tcol .sponsor-row{margin-top:6px;padding-top:8px;border-top:1px dashed var(--line)}
-  .tcol .sponsor-row .h{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-
-  /* Quote */
-  .quote{
-    font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.005em;line-height:1.0;
-    font-size:clamp(36px,5.4vw,86px);color:var(--ink);margin:0;
-  }
-  .quote .gold{color:var(--gold)}
+  .tcol .h{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:16px;letter-spacing:.04em;line-height:1.1}
+  .tcol .d{color:var(--ink-dim);font-size:12px;line-height:1.5}
 
   /* Ask box */
   .ask{
-    margin-top:22px;border:1px solid var(--gold-line);background:var(--gold-soft);
-    padding:20px 22px;display:flex;flex-direction:column;gap:12px;
+    margin-top:26px;border:1px solid var(--gold-line);background:var(--gold-soft);
+    padding:22px;display:flex;flex-direction:column;gap:12px;
   }
-  .ask .h{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(18px,1.6vw,24px);color:var(--gold);letter-spacing:.04em}
-  .ask ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 22px}
-  .ask li{font-size:13px;color:var(--ink);padding-left:14px;position:relative;line-height:1.5}
-  .ask li::before{content:"";position:absolute;left:0;top:.65em;width:8px;height:1px;background:var(--gold)}
+  .ask .h{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(20px,1.7vw,26px);color:var(--gold);letter-spacing:.04em}
+  .ask ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px}
+  .ask li{font-size:14px;color:var(--ink);padding-left:16px;position:relative;line-height:1.5}
+  .ask li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--gold)}
+
+  /* Quote (slide 2) */
+  .quote{
+    font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.005em;line-height:1.0;
+    font-size:clamp(40px,6vw,96px);color:var(--ink);margin:0;
+  }
+  .quote .gold{color:var(--gold)}
+
+  /* Channels (slide 7, 8) */
+  .channels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:30px;gap:0}
+  .ch{padding:24px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+  .ch:last-child{border-right:0}
+  .ch .h{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(20px,1.7vw,26px);letter-spacing:.04em;line-height:1}
+  .ch ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+  .ch li{font-size:14px;color:var(--ink);padding-left:16px;position:relative;line-height:1.5}
+  .ch li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--gold)}
+  .ch li small{display:block;color:var(--ink-mute);font-size:12px;margin-top:2px}
 
   /* Chrome */
   .chrome{
@@ -182,14 +149,15 @@
   .progress{position:fixed;left:0;right:0;top:0;height:2px;background:transparent;z-index:11}
   .progress > div{height:100%;background:var(--gold);width:0%;transition:width .35s ease}
 
-  @media (max-width: 1100px){
+  @media (max-width: 1080px){
     .linegrid.g-3,.linegrid.g-4{grid-template-columns:1fr 1fr !important}
-    .kpis,.cards,.steps,.funnel{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .kpi:nth-child(2n),.pcard:nth-child(2n),.step:nth-child(2n),.fcell:nth-child(2n){border-right:0}
+    .reasons,.stats,.channels{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .reason:nth-child(2n),.stat:nth-child(2n),.ch:nth-child(2n){border-right:0}
     .timeline{grid-template-columns:1fr 1fr 1fr}
     .ask ul{grid-template-columns:1fr}
     .tier{grid-template-columns:1fr}
     .tier .meta{border-right:0;border-bottom:1px solid var(--line)}
+    .numbered .row{grid-template-columns:60px 1fr}
   }
 </style>
 </head>
@@ -202,147 +170,112 @@
 
     <!-- 1 — COVER -->
     <section class="slide is-active" data-slide="1">
-      <div class="eyebrow">MEGATHON · PR &amp; SPONSORSHIP PLAN · INTERNAL · MAY 2026</div>
+      <div class="eyebrow">MEGATHON · PR PLAN · INTERNAL · MAY 2026</div>
       <h1 class="display">
-        ROADMAP TO<br/>
-        <span class="gold">EUROPE’S AI MOMENT.</span>
+        DIT IS<br/>
+        ONS <span class="gold">PR PLAN.</span>
       </h1>
       <p class="lede">
-        Een 10-slides plan voor het organisatieteam — hoe we de komende 8 weken sponsoren
-        binnenhalen, perception bouwen en MEGATHON neerzetten als hét Europese AI moment.
+        Wat we gaan doen, hoe we het doen, en wat we deze week leveren —
+        in 10 simpele slides.
       </p>
-      <div class="micro" style="margin-top:30px">10 SLIDES · 8 WEKEN · 18 SPONSOR TARGETS · €185K CASH</div>
+      <div class="micro" style="margin-top:32px">8 WEKEN · 1 EVENT · EÉN DOEL</div>
     </section>
 
-    <!-- 2 — WHERE WE ARE -->
+    <!-- 2 — HET DOEL -->
     <section class="slide" data-slide="2">
-      <div class="eyebrow"><span class="num">01</span>WAAR WE STAAN</div>
-      <h2 class="display">STERK PRODUCT.<br/><span class="gold">PERCEPTION ACHTERSTAND.</span></h2>
-      <p class="kicker">
-        We hebben venue, format en eerste partners. Wat ontbreekt: publieke perception.
-        Sponsoren wachten daarop. Onze taak — dat gat in 8 weken sluiten.
+      <div class="eyebrow"><span class="num">01</span>HET DOEL</div>
+      <p class="quote">
+        MEGATHON WORDT<br/>
+        <span class="gold">HÉT AI EVENT</span><br/>
+        VAN EUROPA.
+      </p>
+      <p class="lede" style="max-width:50ch">
+        Iedereen die met AI bezig is, moet weten dat dit gebeurt — en willen
+        komen, sponsoren of erover schrijven.
       </p>
 
-      <div class="linegrid g-3" style="margin-top:30px">
-        <div class="pillar"><div class="num">A</div><div class="label">Wat werkt</div><div class="desc">Sterke positionering. 9 partners onboard. Internationaal venue.</div></div>
-        <div class="pillar"><div class="num">B</div><div class="label">Wat ontbreekt</div><div class="desc">Naamsbekendheid buiten de scene. Pers-momentum. Visible signals.</div></div>
-        <div class="pillar"><div class="num">C</div><div class="label">Wat wij doen</div><div class="desc">Een 8-weken campagne die perception omzet in sponsoren, pers en builders.</div></div>
+      <div class="stats">
+        <div class="stat"><div class="v gold">€185K</div><div class="l">Aan sponsoren binnen</div></div>
+        <div class="stat"><div class="v">8+</div><div class="l">Keer in de pers</div></div>
+        <div class="stat"><div class="v">3.000+</div><div class="l">Mensen op de wachtlijst</div></div>
       </div>
     </section>
 
-    <!-- 3 — OBJECTIVE + 3 PILLARS -->
+    <!-- 3 — WAT WE DOEN -->
     <section class="slide" data-slide="3">
-      <div class="eyebrow"><span class="num">02</span>STRATEGIE</div>
-      <h2 class="display">EÉN DOEL.<br/><span class="gold">DRIE PILLARS.</span></h2>
-      <p class="kicker">
-        Doel: maak MEGATHON het unmissable Europese AI event van 2026.
-        Elk team-besluit valt onder één van deze pillars — geen losse acties.
-      </p>
+      <div class="eyebrow"><span class="num">02</span>WAT WE GAAN DOEN</div>
+      <h2 class="display">DRIE DINGEN.<br/><span class="gold">MEER NIET.</span></h2>
 
-      <div class="linegrid g-3">
-        <div class="pillar">
-          <div class="num">01</div>
-          <div class="label">Perception</div>
-          <div class="desc">Hoe MEGATHON voelt vóór een ticket of pitch.<br/><span class="gold">Owners:</span> Brand · PR</div>
+      <div class="numbered">
+        <div class="row">
+          <div class="n">01</div>
+          <div class="body">
+            <div class="h">Sponsoren binnenhalen</div>
+            <div class="d">18 merken benaderen. Eindstand: minimaal 6 sponsoren getekend, samen €185.000+.</div>
+          </div>
         </div>
-        <div class="pillar">
-          <div class="num">02</div>
-          <div class="label">Momentum</div>
-          <div class="desc">Wekelijkse drops die zeggen: dit is het moment.<br/><span class="gold">Owners:</span> Content · Community</div>
+        <div class="row">
+          <div class="n">02</div>
+          <div class="body">
+            <div class="h">In de media komen</div>
+            <div class="d">Tech.eu, TNW, Sifted, FD, Quote, RTL Z. Eindstand: 8+ artikelen, samen 25M+ bereik.</div>
+          </div>
         </div>
-        <div class="pillar">
-          <div class="num">03</div>
-          <div class="label">Conversion</div>
-          <div class="desc">Perception omzetten in sponsors, pers, builders.<br/><span class="gold">Owners:</span> Sponsorship · PR</div>
+        <div class="row">
+          <div class="n">03</div>
+          <div class="body">
+            <div class="h">Hype bouwen online</div>
+            <div class="d">Wekelijkse drops op LinkedIn, Twitter en Instagram. Eindstand: 3.000+ wachtlijst &amp; FOMO.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 4 — KPIs -->
+    <!-- 4 — WIE WE WILLEN -->
     <section class="slide" data-slide="4">
-      <div class="eyebrow"><span class="num">03</span>HOE WE SUCCES METEN</div>
-      <h2 class="display">DE <span class="gold">CIJFERS</span> WAAR WE OP STUREN.</h2>
-      <p class="kicker">Geen vanity metrics. Vier targets, wekelijks gerapporteerd in de standup.</p>
-
-      <div class="kpis">
-        <div class="kpi">
-          <div class="v gold">€185K</div>
-          <div class="l">Sponsor cash committed</div>
-          <div class="sub">Excl. €100K+ in-kind · target T-4</div>
-        </div>
-        <div class="kpi">
-          <div class="v">8+</div>
-          <div class="l">Tier-1 placements</div>
-          <div class="sub">Tech.eu · TNW · Sifted · FD · Quote</div>
-        </div>
-        <div class="kpi">
-          <div class="v">25M+</div>
-          <div class="l">Earned reach</div>
-          <div class="sub">Pers + creators + LinkedIn cumulatief</div>
-        </div>
-        <div class="kpi">
-          <div class="v">3K+</div>
-          <div class="l">Waitlist signups</div>
-          <div class="sub">6× oversubscribed = sponsor proof</div>
-        </div>
-      </div>
-
-      <p class="kicker" style="margin-top:18px">
-        <span class="gold">Aanvullend:</span> 10 high-profile founders/judges aangekondigd ·
-        50K+ social follower groei · 5M+ video views pre-event.
-      </p>
-    </section>
-
-    <!-- 5 — SPONSOR TARGET LIST -->
-    <section class="slide" data-slide="5">
-      <div class="eyebrow"><span class="num">04</span>SPONSOR TARGETS · WHO</div>
-      <h2 class="display">WIE WE BENADEREN.<br/><span class="gold">EN WAAROM ZIJ.</span></h2>
-      <p class="kicker">18 brands. 4 tiers. Een mix tussen ambitie en realistisch sluitbaar.</p>
+      <div class="eyebrow"><span class="num">03</span>SPONSOREN · WIE</div>
+      <h2 class="display">DEZE 18 MERKEN.<br/><span class="gold">VERDEELD IN 4 GROEPEN.</span></h2>
 
       <div style="margin-top:22px">
         <div class="tier">
           <div class="meta">
-            <div class="lbl">Headline · Tier 1</div>
-            <div class="price">€40K+</div>
-            <div class="why">Owners van AI's frontier. Sponsoren builder events globally.</div>
+            <div class="lbl">De groten</div>
+            <div class="why">Hoofdpartner. Geeft ons direct status &amp; geloofwaardigheid.</div>
           </div>
           <div class="brands">
             <div class="pills">
-              <span class="pill gold lg">OPENAI</span>
-              <span class="pill gold lg">ANTHROPIC</span>
-              <span class="pill gold lg">GOOGLE</span>
-              <span class="pill gold lg">NVIDIA</span>
-              <span class="pill gold lg">META</span>
-              <span class="pill gold lg">APPLE</span>
+              <span class="pill gold">OPENAI</span>
+              <span class="pill gold">ANTHROPIC</span>
+              <span class="pill gold">GOOGLE</span>
+              <span class="pill gold">NVIDIA</span>
+              <span class="pill gold">META</span>
+              <span class="pill gold">APPLE</span>
             </div>
-            <div class="note">Doel: 2 sluiten. Eerste = anchor voor de rest.</div>
           </div>
         </div>
 
         <div class="tier">
           <div class="meta">
-            <div class="lbl">Builder Tools · Tier 2</div>
-            <div class="price">€15–25K</div>
-            <div class="why">Hun product wint als 500 builders het 48 uur live gebruiken.</div>
+            <div class="lbl">De builder tools</div>
+            <div class="why">Hun product wordt 48 uur gebruikt door 500 builders.</div>
           </div>
           <div class="brands">
             <div class="pills">
-              <span class="pill outline-strong">CURSOR</span>
-              <span class="pill outline-strong">QDRANT</span>
-              <span class="pill outline-strong">MIRO</span>
-              <span class="pill outline-strong">MLOPS</span>
-              <span class="pill outline-strong">ORACLE</span>
-              <span class="pill outline-strong">CISCO</span>
+              <span class="pill">CURSOR</span>
+              <span class="pill">QDRANT</span>
+              <span class="pill">MIRO</span>
+              <span class="pill">MLOPS</span>
+              <span class="pill">ORACLE</span>
+              <span class="pill">CISCO</span>
             </div>
-            <div class="note">Doel: 4 sluiten. API/product activations als ROI.</div>
           </div>
         </div>
 
         <div class="tier">
           <div class="meta">
-            <div class="lbl">Talent &amp; Enterprise · Tier 3</div>
-            <div class="price">€10–20K</div>
-            <div class="why">Recruitment angle. Top 1% AI talent in één zaal.</div>
+            <div class="lbl">De talent merken</div>
+            <div class="why">Willen het beste AI talent zien en spreken.</div>
           </div>
           <div class="brands">
             <div class="pills">
@@ -350,15 +283,13 @@
               <span class="pill">KPMG</span>
               <span class="pill">ASML</span>
             </div>
-            <div class="note">Doel: 2 sluiten. Hire booth + talent dinner.</div>
           </div>
         </div>
 
         <div class="tier">
           <div class="meta">
-            <div class="lbl">Brand &amp; Lifestyle · Tier 4</div>
-            <div class="price">€3–8K</div>
-            <div class="why">Cultureel relevant. Lokaal momentum. Energie.</div>
+            <div class="lbl">De lifestyle merken</div>
+            <div class="why">Energie, beleving en cultureel moment.</div>
           </div>
           <div class="brands">
             <div class="pills">
@@ -366,268 +297,201 @@
               <span class="pill">COOLBLUE</span>
               <span class="pill">NETFLIX</span>
             </div>
-            <div class="note">Doel: 3 sluiten. Hospitality + culture moments.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6 — SPONSOR ACQUISITION PLAYBOOK -->
-    <section class="slide" data-slide="6">
-      <div class="eyebrow"><span class="num">05</span>SPONSOR ACQUISITION · HOW</div>
-      <h2 class="display">VAN COLD LIST<br/><span class="gold">NAAR COMMITTED CASH.</span></h2>
-      <p class="kicker">Geen mass mail. Vier stappen, herhaalbaar per brand.</p>
+    <!-- 5 — WAAROM ZIJ MEEDOEN -->
+    <section class="slide" data-slide="5">
+      <div class="eyebrow"><span class="num">04</span>SPONSOREN · WAAROM</div>
+      <h2 class="display">WAAROM ZE <span class="gold">JA</span> ZEGGEN.</h2>
 
-      <div class="steps">
-        <div class="step">
+      <div class="reasons">
+        <div class="reason">
           <div class="num">01</div>
-          <div class="h">Map</div>
-          <div class="d">Twee warme intro-paden per brand. Founder-to-founder of judge-to-judge.<br/><span class="gold">Output:</span> spreadsheet met intro owner per logo.</div>
+          <div class="h">Toptalent</div>
+          <div class="d">500 vetted AI builders, founders en engineers in één zaal.</div>
         </div>
-        <div class="step">
+        <div class="reason">
           <div class="num">02</div>
-          <div class="h">Tailor</div>
-          <div class="d">Per sponsor 1-page: waarom zij, welke builders, welke ROI, welk product moment.<br/><span class="gold">Output:</span> 18 custom pitches.</div>
+          <div class="h">Brand naast AI</div>
+          <div class="d">Hun logo gekoppeld aan de toekomst van AI in Europa.</div>
         </div>
-        <div class="step">
+        <div class="reason">
           <div class="num">03</div>
-          <div class="h">Anchor</div>
-          <div class="d">Sluit één Tier-1 eerst. Use als social proof om de rest te accelereren.<br/><span class="gold">Output:</span> headline reveal als persmoment.</div>
+          <div class="h">Recruiten</div>
+          <div class="d">Direct hiring access. Hire booth, talent dinner, contact.</div>
         </div>
-        <div class="step">
+        <div class="reason">
           <div class="num">04</div>
-          <div class="h">Close</div>
-          <div class="d">Lock date. Limited categories. Geen “ik denk er nog over na”.<br/><span class="gold">Output:</span> getekende contracten + paid invoices.</div>
-        </div>
-      </div>
-
-      <div style="margin-top:26px">
-        <div class="micro" style="margin-bottom:8px">FUNNEL EXPECTATION · 8 WEKEN</div>
-        <div class="funnel">
-          <div class="fcell"><div class="v">18</div><div class="l">Mapped</div></div>
-          <div class="fcell"><div class="v">14</div><div class="l">Pitched</div></div>
-          <div class="fcell"><div class="v">10</div><div class="l">In Pipeline</div></div>
-          <div class="fcell"><div class="v">8</div><div class="l">LOI / Verbal</div></div>
-          <div class="fcell"><div class="v">6+</div><div class="l">Signed &amp; Paid</div></div>
+          <div class="h">Product gebruikt</div>
+          <div class="d">Hun tool wordt 48 uur live gebruikt door echte builders.</div>
         </div>
       </div>
     </section>
 
-    <!-- 7 — SPONSOR PACKAGES -->
+    <!-- 6 — HOE WE BENADEREN -->
+    <section class="slide" data-slide="6">
+      <div class="eyebrow"><span class="num">05</span>SPONSOREN · HOE</div>
+      <h2 class="display">ZO BENADEREN<br/>WE ZE.</h2>
+
+      <div class="numbered">
+        <div class="row">
+          <div class="n">01</div>
+          <div class="body">
+            <div class="h">Warme intro zoeken</div>
+            <div class="d">Wie kent iemand binnen het bedrijf? Eén warme intro is meer waard dan 100 cold mails.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="n">02</div>
+          <div class="body">
+            <div class="h">LinkedIn + mail</div>
+            <div class="d">Persoonlijk bericht. Geen massa-mail. Per merk uniek: waarom zij, welke ROI, welke deadline.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="n">03</div>
+          <div class="body">
+            <div class="h">Zoom call met deck</div>
+            <div class="d">15 minuten. We laten zien wat we bouwen, wat ze krijgen, en wanneer ze moeten beslissen.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="n">04</div>
+          <div class="body">
+            <div class="h">Deal sluiten</div>
+            <div class="d">Beperkte plekken. Vaste deadline. Contract en factuur binnen 2 weken na de call.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 — IN DE PERS -->
     <section class="slide" data-slide="7">
-      <div class="eyebrow"><span class="num">06</span>SPONSOR PACKAGES · WHAT</div>
-      <h2 class="display">OWN <span class="gold">A CATEGORY.</span></h2>
-      <p class="kicker">Niet “logo op banner.” Categorie-eigenaarschap met meetbare ROI per pakket.</p>
+      <div class="eyebrow"><span class="num">06</span>PERS · HOE</div>
+      <h2 class="display">ZO KOMEN WE<br/><span class="gold">IN DE MEDIA.</span></h2>
 
-      <div class="cards">
-        <div class="pcard">
-          <span class="tag">Headline</span>
-          <div class="name">AI Foundation Partner</div>
-          <div class="who">OpenAI · Anthropic · Google · Nvidia</div>
-          <div class="who">Main stage · keynote · category ownership · recruitment access · pers exclusive.</div>
-          <div class="price">€40K+</div>
+      <div class="channels">
+        <div class="ch">
+          <div class="h">Welke media</div>
+          <div class="pills">
+            <span class="pill gold">TECH.EU</span>
+            <span class="pill gold">THE NEXT WEB</span>
+            <span class="pill gold">SIFTED</span>
+            <span class="pill gold">SILICON CANALS</span>
+            <span class="pill">FD</span>
+            <span class="pill">QUOTE</span>
+            <span class="pill">RTL Z</span>
+            <span class="pill">EU-STARTUPS</span>
+          </div>
+          <ul>
+            <li>Plus AI newsletters &amp; tech podcasts<small>Voor diepgang en doelgroep-bereik</small></li>
+            <li>LinkedIn &amp; YouTube creators<small>Voor de jongere builder community</small></li>
+          </ul>
         </div>
-        <div class="pcard">
-          <span class="tag">Gold</span>
-          <div class="name">Builder Tools Partner</div>
-          <div class="who">Cursor · Qdrant · Miro · Oracle</div>
-          <div class="who">API challenges · workshop · branded reels · adoption metrics.</div>
-          <div class="price">€15–25K</div>
-        </div>
-        <div class="pcard">
-          <span class="tag">Gold</span>
-          <div class="name">Talent &amp; Enterprise Partner</div>
-          <div class="who">Deloitte · KPMG · ASML</div>
-          <div class="who">Hire booth · talent dinner · recruitment access · category logo.</div>
-          <div class="price">€10–20K</div>
-        </div>
-        <div class="pcard">
-          <span class="tag">Ecosystem</span>
-          <div class="name">Brand &amp; Lifestyle Partner</div>
-          <div class="who">Red Bull · Coolblue · Netflix</div>
-          <div class="who">Hospitality moments · culture activations · content integration.</div>
-          <div class="price">€3–8K</div>
+        <div class="ch">
+          <div class="h">Hoe we ze pitchen</div>
+          <ul>
+            <li>Iedere 2 weken één persmoment<small>Judge reveal · sponsor reveal · venue · prize pool</small></li>
+            <li>Eén exclusive aan een Tier-1 medium<small>Voor het grote verhaal: “Europese AI moment”</small></li>
+            <li>Persmap met visuals, quotes &amp; data<small>Maakt het journalisten zo makkelijk mogelijk</small></li>
+            <li>Press preview 2 weken vóór event<small>20+ journalisten in venue, embargoed coverage</small></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- 8 — PR / CHANNEL MIX -->
+    <!-- 8 — HYPE ONLINE -->
     <section class="slide" data-slide="8">
-      <div class="eyebrow"><span class="num">07</span>PR &amp; CHANNEL MIX</div>
-      <h2 class="display">OWNED. EARNED.<br/><span class="gold">FOUNDER-LED.</span></h2>
-      <p class="kicker">We bouwen eerst onze eigen kanalen, dan leveragen we ze. Geen paid PR.</p>
+      <div class="eyebrow"><span class="num">07</span>ONLINE · HOE</div>
+      <h2 class="display">ZO BOUWEN WE<br/><span class="gold">ONLINE HYPE.</span></h2>
 
-      <div class="linegrid g-4 chan">
-        <div>
-          <div class="name"><span class="gold">Owned</span></div>
+      <div class="channels">
+        <div class="ch">
+          <div class="h">Wat we plaatsen</div>
           <ul>
-            <li>Site &amp; landing</li>
-            <li>Newsletter (5K target)</li>
-            <li>Aftermovie + recap</li>
-            <li>Founder interviews</li>
+            <li>Wekelijkse drops<small>Judge / sponsor / venue / prize reveals</small></li>
+            <li>Korte video's<small>Founders, het venue, behind-the-scenes</small></li>
+            <li>Countdown laatste 4 weken<small>Dagelijkse posts richting event</small></li>
+            <li>Live coverage tijdens event<small>Reels, lives, founder reactions</small></li>
           </ul>
         </div>
-        <div>
-          <div class="name"><span class="gold">Earned</span></div>
+        <div class="ch">
+          <div class="h">Wie het deelt</div>
           <ul>
-            <li>Tech.eu · TNW · Sifted</li>
-            <li>FD · Quote · RTL Z</li>
-            <li>Silicon Canals · EU-Startups</li>
-            <li>AI newsletters · podcasts</li>
-          </ul>
-        </div>
-        <div>
-          <div class="name"><span class="gold">Founder-led</span></div>
-          <ul>
-            <li>LinkedIn drops</li>
-            <li>X/Twitter momentum</li>
-            <li>Judge announcements</li>
-            <li>Behind-the-scenes</li>
-          </ul>
-        </div>
-        <div>
-          <div class="name"><span class="gold">Community</span></div>
-          <ul>
-            <li>Builder communities</li>
-            <li>YC / VC netwerken</li>
-            <li>University chapters</li>
-            <li>Discord / Telegram</li>
+            <li>Onze eigen kanalen<small>LinkedIn, Instagram, X, YouTube</small></li>
+            <li>De founders &amp; organisatie<small>Persoonlijke posts &gt; brand posts</small></li>
+            <li>Judges &amp; sponsoren<small>Zij kondigen zichzelf aan op hun kanalen</small></li>
+            <li>Builder community &amp; ambassadors<small>10–15 mensen die elke drop pushen</small></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 9 — TIMELINE -->
+    <!-- 9 — WANNEER -->
     <section class="slide" data-slide="9">
-      <div class="eyebrow"><span class="num">08</span>8-WEKEN ROADMAP</div>
-      <h2 class="display">SPONSORS &amp; PR<br/><span class="gold">PER FASE.</span></h2>
-      <p class="kicker">Twee parallelle tracks. Eén ritme. Sponsor-track loopt 2 weken vóór op pers.</p>
+      <div class="eyebrow"><span class="num">08</span>WANNEER DOEN WE WAT</div>
+      <h2 class="display">8 WEKEN.<br/><span class="gold">5 FASES.</span></h2>
 
       <div class="timeline">
         <div class="tcol">
-          <div class="when">T–8</div>
-          <div class="phase">Foundation</div>
-          <ul>
-            <li>Sponsor deck v1</li>
-            <li>Visual identity lock</li>
-            <li>Media list klaar</li>
-          </ul>
-          <div class="sponsor-row">
-            <div class="h">Sponsors</div>
-            <ul>
-              <li>18 brands gemapped</li>
-              <li>Warm paths gevonden</li>
-            </ul>
-          </div>
+          <div class="when">Week 1–2</div>
+          <div class="h">Voorbereiden</div>
+          <div class="d">Sponsor lijst, deck en visuals klaar. Eerste warme intro's.</div>
         </div>
         <div class="tcol">
-          <div class="when">T–6</div>
-          <div class="phase">Tease</div>
-          <ul>
-            <li>Teaser campaign live</li>
-            <li>Eerste 3 judges drop</li>
-            <li>Waitlist open</li>
-          </ul>
-          <div class="sponsor-row">
-            <div class="h">Sponsors</div>
-            <ul>
-              <li>14 pitches verstuurd</li>
-              <li>Headline #1 calls</li>
-            </ul>
-          </div>
+          <div class="when">Week 3–4</div>
+          <div class="h">Eerste drops</div>
+          <div class="d">Eerste judges &amp; teaser online. Eerste sponsor calls.</div>
         </div>
         <div class="tcol">
-          <div class="when">T–4</div>
-          <div class="phase">Build</div>
-          <ul>
-            <li>Tier-1 press exclusive</li>
-            <li>Founder interviews live</li>
-            <li>Countdown gestart</li>
-          </ul>
-          <div class="sponsor-row">
-            <div class="h">Sponsors</div>
-            <ul>
-              <li>Headline #1 signed</li>
-              <li>Cash 80% locked</li>
-            </ul>
-          </div>
+          <div class="when">Week 5–6</div>
+          <div class="h">Doorbreken</div>
+          <div class="d">Eerste hoofdsponsor getekend. Pers-exclusive live.</div>
         </div>
         <div class="tcol">
-          <div class="when">T–2</div>
-          <div class="phase">Peak</div>
-          <ul>
-            <li>Press preview</li>
-            <li>Final lineup drop</li>
-            <li>Embargoed coverage</li>
-          </ul>
-          <div class="sponsor-row">
-            <div class="h">Sponsors</div>
-            <ul>
-              <li>Alle pakketten dicht</li>
-              <li>Activations production</li>
-            </ul>
-          </div>
+          <div class="when">Week 7</div>
+          <div class="h">Aftellen</div>
+          <div class="d">Final lineup, countdown, press preview, embargoed pers.</div>
         </div>
         <div class="tcol">
-          <div class="when">T–0/+1</div>
-          <div class="phase">Live · Wrap</div>
-          <ul>
-            <li>Live coverage + clips</li>
-            <li>Winner story exclusive</li>
-            <li>Aftermovie &lt; 7 dagen</li>
-          </ul>
-          <div class="sponsor-row">
-            <div class="h">Sponsors</div>
-            <ul>
-              <li>Recap deck verstuurd</li>
-              <li>Renewal calls geboekt</li>
-            </ul>
-          </div>
+          <div class="when">Week 8</div>
+          <div class="h">Live + recap</div>
+          <div class="d">Live coverage. Aftermovie binnen 7 dagen na het event.</div>
         </div>
       </div>
     </section>
 
-    <!-- 10 — ASK & NEXT 7 DAYS -->
+    <!-- 10 — WAT IK NODIG HEB -->
     <section class="slide" data-slide="10">
-      <div class="eyebrow"><span class="num">09</span>ASK &amp; NEXT 7 DAYS</div>
+      <div class="eyebrow"><span class="num">09</span>WAT IK NODIG HEB</div>
       <h2 class="display">DEZE WEEK<br/><span class="gold">ZETTEN WE DE TOON.</span></h2>
 
-      <div class="linegrid g-3" style="margin-top:20px">
-        <div class="pillar">
-          <div class="num">M</div>
-          <div class="label">Ma–Di</div>
-          <div class="desc">Sponsor deck v1. KPI dashboard live. 18 brands gemapped met warm intro per logo.</div>
-        </div>
-        <div class="pillar">
-          <div class="num">W</div>
-          <div class="label">Wo–Do</div>
-          <div class="desc">First wave outreach (Tier 1 + 2). Teaser visuals klaar. Eerste judge drop ingepland.</div>
-        </div>
-        <div class="pillar">
-          <div class="num">F</div>
-          <div class="label">Vr</div>
-          <div class="desc">Review: pipeline status · KPI sync · go/no-go op week 2.</div>
-        </div>
-      </div>
-
       <div class="ask">
-        <div class="h">Wat we deze week van het team nodig hebben</div>
+        <div class="h">Wat ik van het team nodig heb</div>
         <ul>
-          <li>Warm intro lijst per Tier-1 brand (OpenAI, Anthropic, Google, Nvidia, Meta, Apple)</li>
-          <li>Final lock op visual identity (uiterlijk woensdag)</li>
-          <li>Goedkeuring sponsor pricing &amp; categorieën</li>
-          <li>Eén spokesperson aangewezen voor pers (niet wisselen)</li>
-          <li>Toegang tot venue voor content shoot</li>
+          <li>Lijst van warme contacten naar de Tier-1 merken</li>
+          <li>Goedkeuring sponsor pakketten en prijzen</li>
+          <li>Definitieve visuele identiteit (uiterlijk woensdag)</li>
+          <li>Toegang tot venue voor foto- en videoshoot</li>
+          <li>Eén vaste woordvoerder voor pers</li>
           <li>Budget bevestiging voor teaser productie</li>
         </ul>
       </div>
+
+      <p class="lede" style="margin-top:24px;max-width:60ch">
+        Daarna start ik met outreach via LinkedIn, mail en warme intro's. Iedere
+        vrijdag een korte update — wat er staat, wat er getekend is, wat er nog moet.
+      </p>
     </section>
 
   </div>
 </div>
 
 <div class="chrome">
-  <div class="brand">MEGATHON · <span class="gold">2026</span> · PR &amp; SPONSORSHIP</div>
+  <div class="brand">MEGATHON · <span class="gold">2026</span> · PR PLAN</div>
   <div class="nav">
     <button class="navbtn" id="prev" aria-label="Previous slide">‹</button>
     <div class="counter" id="counter">01 / 10</div>
